@@ -9,12 +9,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'RUN apt-get update && apt-get install -y git maven'
-        sh '''rm -rf ~/lab6
-mkdir ~/lab6
-cd ~/lab6 && git clone --recursive https://github.com/halushko/appz_bot_example.git
-cd ~/lab6/appz_bot_example && mvn clean install && cd hello_bot'''
-        sh 'cd lab6/appz_bot_example/hello_bot && mvn  exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot" -Dexec.args="1631350081:AAGSyDbixGxarcrbILrgjex6oInkFSleveE Pikachu"'
+        sh '''docker stop $(docker ps -q --filter "ancestor=lab11botcarrier")
+docker rm -f $(docker ps -q --filter "ancestor=lab11botcarrier" --filter "status=exited")
+docker build -f ./Dockerfile .
+docker run -d lab11botcarrier'''
       }
     }
 
