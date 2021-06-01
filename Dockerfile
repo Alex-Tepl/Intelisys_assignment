@@ -6,7 +6,7 @@ COPY . .
 RUN apt-get update && apt-get install -y git
 RUN mkdir -p /var/hatsuneMiku
 WORKDIR /var/hatsuneMiku
-RUN git clone https://github.com/Zev-Arthur/Intelisys_assignment.git
+RUN git clone https://github.com/Alex-Tepl/Intelisys_assignment.git
 RUN cd Intelisys_assignment/ && apt-get install -y maven && mvn clean install
-ENTRYPOINT cd Intelisys_assignment/ && cd hello_bot/ && mvn  exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot" -Dexec.args="1631350081:AAGSyDbixGxarcrbILrgjex6oInkFSleveE Pikachu";
+ENTRYPOINT cd Intelisys_assignment/ && cd hello_bot/ && mvn  exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot" -Dexec.args="1654040446:AAEs4Oi4jEcMADcPpQoDNZEIXcfKnAsFpZs Sanya";
 EXPOSE 80
